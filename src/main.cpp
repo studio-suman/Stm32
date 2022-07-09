@@ -32,7 +32,7 @@ void loop()
 
 {
 
-  Serial.println("Start");
+  SerialUSB.println("Start");
   float h = dht.readHumidity(); // Gets Humidity value
   float t = dht.readTemperature(); // Gets Temperature value
   lcd.setCursor(0, 0);
