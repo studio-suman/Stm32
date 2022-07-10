@@ -16,12 +16,12 @@ void setup()
 {
 
   // initialize the LCD
-
+  Serial.begin(115200); // initialize serial port for communication with STM32
   lcd.init();
   dht.begin(); // Begins to receive Temperature and humidity values.
   lcd.backlight(); // Turn on the blacklight and print a welcome message.
   lcd.setCursor(0, 0);
-  lcd.print("CIRCUIT DIGEST");
+  lcd.print("CD - Suman Saha");
   lcd.setCursor(0, 1);
   lcd.print("DHT11 with STM32");
   delay(3000);
