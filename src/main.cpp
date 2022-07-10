@@ -35,12 +35,26 @@ void loop()
   SerialUSB.println("Start");
   float h = dht.readHumidity(); // Gets Humidity value
   float t = dht.readTemperature(); // Gets Temperature value
+
+  while(isnan(t) || isnan(h));
+  {
+    
+    SerialUSB.println("Failed to read from DHT sensor!");
+    lcd.setCursor(0, 0);
+    lcd.autoscroll();
+    lcd.print("Failed to read from DHT sensor!");
+    delay(5000);
+    lcd.noBacklight();
+  } // if humidity or temperature value is not a number, then it will print "Failed to read from DHT sensor!" and wait for 5 seconds and turn off the blacklight.
+  
+  
   lcd.setCursor(0, 0);
   lcd.print("Temp: ");
   lcd.print(t);
   lcd.print(" C");
   lcd.setCursor(0, 1);
-  lcd.print("Humid: ");
+  lcd.print("Humidity: ");
   lcd.print(h);
   lcd.print(" %");
-}
+  }
+  
