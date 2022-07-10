@@ -16,7 +16,7 @@ void setup()
 {
 
   // initialize the LCD
-  Serial.begin(115200); // initialize serial port for communication with STM32
+  Serial.begin(115200); // initialize serial port for communication with STM32 Must in DFU configuration mode
   lcd.init();
   dht.begin(); // Begins to receive Temperature and humidity values.
   lcd.backlight(); // Turn on the blacklight and print a welcome message.
