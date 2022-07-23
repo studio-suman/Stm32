@@ -4,7 +4,7 @@
 #include <LiquidCrystal_I2C.h> //Library for using I2C type LCD display
 #include <DHT.h> //Library for using DHT sensor
 
-#define DHTPIN PA1
+#define DHTPIN PA0
 #define DHTTYPE DHT11
 
 LiquidCrystal_I2C lcd(0x27, 16, 2); // initilize object lcd for class LiquidCrystal_I2C with I2C address of 0x27 and 16x2 type LCD display
@@ -36,7 +36,7 @@ void loop()
   float h = dht.readHumidity(); // Gets Humidity value
   float t = dht.readTemperature(); // Gets Temperature value
 
-  while(isnan(t) || isnan(h));
+/*   while(isnan(t) || isnan(h));
   {
     
     SerialUSB.println("Failed to read from DHT sensor!");
@@ -44,8 +44,8 @@ void loop()
     lcd.autoscroll();
     lcd.print("Failed to read from DHT sensor!");
     delay(5000);
-    lcd.noBacklight();
-  } // if humidity or temperature value is not a number, then it will print "Failed to read from DHT sensor!" and wait for 5 seconds and turn off the blacklight.
+    //lcd.noBacklight();
+  } */ // if humidity or temperature value is not a number, then it will print "Failed to read from DHT sensor!" and wait for 5 seconds and turn off the blacklight.
   
   
   lcd.setCursor(0, 0);
